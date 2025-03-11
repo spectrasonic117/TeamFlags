@@ -1,0 +1,5 @@
+name: TeamFlags
+version: '${version}'
+main: com.spectrasonic.TeamFlags.Main
+api-version: '1.21'
+authors: [Spectrasonic]
