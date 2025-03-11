@@ -1,9 +1,14 @@
 package com.spectrasonic.TeamFlags;
 
+import co.aikar.commands.PaperCommandManager;
+import com.spectrasonic.TeamFlags.Commands.TeamCommand;
+import com.spectrasonic.TeamFlags.Events.InventoryListener;
 import com.spectrasonic.TeamFlags.Utils.MessageUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
+    
+    private PaperCommandManager commandManager;
 
     @Override
     public void onEnable() {
@@ -20,10 +25,11 @@ public final class Main extends JavaPlugin {
     }
 
     public void registerCommands() {
-        // Set Commands Here
+        commandManager = new PaperCommandManager(this);
+        commandManager.registerCommand(new TeamCommand(this));
     }
 
     public void registerEvents() {
-        // Set Events Here
+        getServer().getPluginManager().registerEvents(new InventoryListener(this), this);
     }
 }

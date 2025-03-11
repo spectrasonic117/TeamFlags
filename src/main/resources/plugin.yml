@@ -1,5 +1,6 @@
 name: TeamFlags
-version: '${version}'
+version: "${version}"
 main: com.spectrasonic.TeamFlags.Main
-api-version: '1.21'
+api-version: "1.21"
 authors: [Spectrasonic]
+depend: [LuckPerms]

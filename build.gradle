@@ -41,6 +41,8 @@ dependencies {
     implementation "net.kyori:adventure-api:4.19.0"
     // implementation "net.kyori:adventure-text-serializer-legacy:4.19.0" // Legacy
 
+    compileOnly 'net.luckperms:api:5.4'
+
     // Paperweight
     // paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
 }
@@ -55,7 +57,7 @@ shadowJar {
 build.dependsOn shadowJar
 
 task cleanOut(type: Delete) {
- c   delete fileTree("${rootDir}/out") 
+    delete fileTree("${rootDir}/out") 
 }
 
 build.dependsOn cleanOut
