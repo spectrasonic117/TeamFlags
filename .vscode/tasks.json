@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "gradle",
+            "id": "/Users/spectra/Desktop/TeamFlagsbuildTeamFlags",
+            "script": "build",
+            "description": "Assembles and tests this project.",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "project": "TeamFlags",
+            "buildFile": "/Users/spectra/Desktop/TeamFlags/build.gradle",
+            "rootProject": "TeamFlags",
+            "projectFolder": "/Users/spectra/Desktop/TeamFlags",
+            "workspaceFolder": "/Users/spectra/Desktop/TeamFlags",
+            "args": "",
+            "javaDebug": false,
+            "problemMatcher": [
+                "$gradle"
+            ],
+            "label": "gradle: build"
+        }
+    ]
+}

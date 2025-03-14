@@ -10,8 +10,8 @@ import org.bukkit.entity.Player;
 
 public class TeamMenu {
 
-    private static final int MENU_SIZE = 52;
-    private static final int LEAVE_SLOT = 51;
+    private static final int MENU_SIZE = 54;
+    private static final int LEAVE_SLOT = 53;
 
     // Lista de países – ya en mayúsculas y con espacios reemplazados por guión bajo (si aplica)
     private static final String[] PAISES = {
