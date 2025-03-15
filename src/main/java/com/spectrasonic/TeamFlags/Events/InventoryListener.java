@@ -2,6 +2,7 @@ package com.spectrasonic.TeamFlags.Events;
 
 import com.spectrasonic.TeamFlags.Menu.TeamMenu;
 import com.spectrasonic.TeamFlags.Utils.MessageUtils;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
@@ -21,7 +22,10 @@ public class InventoryListener implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
-        if (e.getView().getTitle().contains("Seleccione un equipo")) {
+        String inventoryName = plugin.getConfig().getString("inventory_name", "<gold>Seleccione un equipo");
+        String deserializedName = MiniMessage.miniMessage().serialize(MiniMessage.miniMessage().deserialize(inventoryName));
+        
+        if (MiniMessage.miniMessage().serialize(e.getView().title()).contains(deserializedName)) {
             e.setCancelled(true);
             Player player = (Player) e.getWhoClicked();
             ItemStack clicked = e.getCurrentItem();

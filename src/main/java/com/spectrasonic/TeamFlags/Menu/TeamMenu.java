@@ -6,12 +6,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.entity.Player;
-
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class TeamMenu {
 
     private static final int MENU_SIZE = 54;
-    private static final int LEAVE_SLOT = 53;
+    private static final int LEAVE_SLOT = 49;
+    private static JavaPlugin plugin;
 
     // Lista de países – ya en mayúsculas y con espacios reemplazados por guión bajo (si aplica)
     private static final String[] PAISES = {
@@ -21,8 +22,13 @@ public class TeamMenu {
             "ESPANA", "FRANCIA"
     };
 
+    public static void init(JavaPlugin javaPlugin) {
+        plugin = javaPlugin;
+    }
+
     public static void openMenu(Player player) {
-        Inventory inv = Bukkit.createInventory(null, MENU_SIZE, MiniMessage.miniMessage().deserialize("<gold>Seleccione un equipo"));
+        String inventoryName = plugin.getConfig().getString("inventory_name", "<gold>Seleccione un equipo");
+        Inventory inv = Bukkit.createInventory(null, MENU_SIZE, MiniMessage.miniMessage().deserialize(inventoryName));
         
         for (int i = 0; i < PAISES.length && i < LEAVE_SLOT; i++) {
             ItemStack item = ItemBuilder.setMaterial("CHARCOAL")
